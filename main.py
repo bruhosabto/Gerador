@@ -2,20 +2,20 @@ from digitos import Digito
 from random import randint
 
 def main(nome, quantidade):
-    # Abre o arquivo em modo de escrita
+    # Opens the file in append mode
     with open(nome, "a+") as criar:
         for _ in range(quantidade):
-            # Gera um valor aleatório de peso entre 8 e 16
+            # Generates a random weight value between 8 and 16
             a = randint(8, 16)
-            # Instancia a classe Digito com o peso gerado
+            # Instantiates the Digito class with the generated weight
             gere = Digito(a)
-            # Gera a senha e grava no arquivo
+            # Generates the password and writes it to the file
             senha = gere.gerente()
             criar.write(senha + "\n")
-            print(senha)
+        print("[!] Done")
 
-# Solicita o nome do arquivo e a quantidade de senhas
-nome = input("Informe o nome para o arquivo de saída: ")
-quantidade = int(input("Informe a quantidade de senhas: "))
+# Requests the output file name and the number of passwords
+nome = input("Type the output file name: ")
+quantidade = int(input("Enter the number of passwords: "))
 
 main(nome, quantidade)
